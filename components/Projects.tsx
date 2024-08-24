@@ -2,14 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import Project from './Project'
 import { mainAxios } from '@/axios/mainAxios';
-import { motion } from "framer-motion";
 
 
 export interface IProjects {
     title: string;
     image: string;
     _id: string;
-    using: [];
+    using: string[];
     technology: string;
     github: string;
     website: string;
@@ -28,8 +27,11 @@ function Projects() {
     useEffect(() => {
         handelProject()
     }, [])
+    console.log(projects)
     const filteredProjects = projects?.filter(project =>
-        project?.technology?.toLowerCase()?.includes(search?.toLowerCase())
+        project.using?.some(tech => 
+            tech.toLowerCase().includes(search.toLowerCase())
+        )
     );
     return (
         <div className='col-span-12 grid grid-cols-12 w-[95%] h-[70dvh] mx-auto gap-4 my-14 md:my-5'>
@@ -40,8 +42,8 @@ function Projects() {
                 <button className="w-[120px] h-[50px] text-white bg-orange-500 rounded-lg transition duration-300 ease-in-out hover:bg-orange-600 my-2" onClick={() => setSearch('TypeScript')}>TypeScript</button>
                 <button className="w-[120px] h-[50px] text-white bg-orange-500 rounded-lg transition duration-300 ease-in-out hover:bg-orange-600 my-2" onClick={() => setSearch('React')}>React</button>
                 <button className="w-[120px] h-[50px] text-white bg-orange-500 rounded-lg transition duration-300 ease-in-out hover:bg-orange-600 my-2" onClick={() => setSearch('Next')}>Next</button>
-                <button className="w-[120px] h-[50px] text-white bg-orange-500 rounded-lg transition duration-300 ease-in-out hover:bg-orange-600 my-2" onClick={() => setSearch('ReactNative')}>React Native</button>
                 <button className="w-[120px] h-[50px] text-white bg-orange-500 rounded-lg transition duration-300 ease-in-out hover:bg-orange-600 my-2" onClick={() => setSearch('Django')}>Django</button>
+                <button className="w-[120px] h-[50px] text-white bg-orange-500 rounded-lg transition duration-300 ease-in-out hover:bg-orange-600 my-2" onClick={() => setSearch('Microservice')}>Microservice</button>
             </div>
             <div className='col-span-8 md:col-span-10 grid grid-cols-12 w-full mx-auto overflow-x-auto'>
                 {filteredProjects?.map((ele) => {

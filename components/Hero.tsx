@@ -42,7 +42,7 @@ function Hero() {
                                         1000,
                                         "I'm a Next.js developer",
                                         1000,
-                                        "I'm a React Native developer",
+                                        "I'm a Microservices developer",
                                         1000,
                                     ]}
                                     speed={30}
