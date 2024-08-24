@@ -6,7 +6,7 @@ function Project({ item }: { item: IProjects }) {
     return (
         <article
             key={item?._id}
-            className="col-span-12 grid grid-cols-12 grid-rows-12 md:col-span-6 xl:col-span-3 mx-3 my-5 md:my-2 h-[600px] md:h-[500px] hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
+            className="col-span-12 grid grid-cols-12 grid-rows-12 md:col-span-6 xl:col-span-3 mx-3 my-5 md:my-2 h-[600px] md:min-h-[500px] hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
         >
             <Image width={1000} height={1000} alt={item?.title} src={item?.image} className='col-span-12 w-[100%] h-[100%] row-span-5 md:row-span-7 object-fill rounded-se-xl rounded-ss-xl' />
             <div className="col-span-12 row-span-7 md:row-span-5 bg-white p-4 !pt-14 sm:p-6 rounded-b-xl">

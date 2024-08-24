@@ -27,9 +27,8 @@ function Projects() {
     useEffect(() => {
         handelProject()
     }, [])
-    console.log(projects)
     const filteredProjects = projects?.filter(project =>
-        project.using?.some(tech => 
+        project.using?.some(tech =>
             tech.toLowerCase().includes(search.toLowerCase())
         )
     );
